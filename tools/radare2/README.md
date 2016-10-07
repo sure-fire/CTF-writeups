@@ -132,6 +132,8 @@ aaaa
   - Yes, it's `~/.radare2rc`.
  - How the hell do you pronounce Radare2?  Do I need to say the 2?
    - [There's no offial way](https://twitter.com/radareorg/status/676798868433018880).  I'm going to stick with "radar" (rhay-dahr).  Since Radare1 is 10 years old, I assume the "2" is unnecessary at this point.
+ - Why isn't Radare2 writing the modified binary out to disk?  See "CRACKME0 (the patching solution)".
+  - There appears to be a bug that silently causes Radare2 to fail when both write mode (`-w`) and debug mode (`-d`) fail.  Radare simply fails to change the file, presumably because the file is open for execution and debugging.
 
 ### Questions I don't yet know the answer to
 
@@ -139,5 +141,4 @@ aaaa
  - Is there a way to turn debugging without exiting and restarting Radare2?
  - WTF is `dbg.bpinmaps` that is referenced in the error when I try to set a debugging breakpoint while not having started Radare2 with the `-d` flag?
  - Is there a way to make it so Radare2 doesn't force me to quit out of both visual modes (BB and hexdump) to get back to a CLI?
- - Why isn't Radare2 writing the modified binary out to disk?  See "CRACKME0 (the patching solution)".
-
+ 
