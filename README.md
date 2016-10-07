@@ -12,3 +12,4 @@ I've been (slowly) learning how to do reverse engineering of binaries.  This rep
 # Writeups
 
  - [CrackMe0x00](writeups/crackme/0x00.md) - A beginner's introduction focused on cracking the same simple challenge, 6 ways with two different tools (radare2 and pwndbg)
+ - [CSAW 2016: Coinslot](writeups/2016-csaw/coinslot.md) - A Python script to interact with a tedious coin-counter
