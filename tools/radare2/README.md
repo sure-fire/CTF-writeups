@@ -4,7 +4,7 @@
 
 If you haven't already, you can install Radare2.  (Note: these commands assume you are running as root.)
 
-```
+```bash
 git clone https://github.com/radare/radare2.git
 cd radare2
 sys/install.sh
