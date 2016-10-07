@@ -114,6 +114,9 @@ e scr.seek   = main
 
 # Disable the distracting startup messages
 e cfg.fortunes = false
+
+# Run autoanalysis on startup
+aaaa
 ```
 
 
