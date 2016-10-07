@@ -6,8 +6,8 @@ I've been (slowly) learning how to do reverse engineering of binaries.  This rep
 
 # Tool Basics
 
- - [Radare2](tools/radare2/README.md)
- - [Tools you should know about](tools/README.md)
+ - [Radare2](tools/radare2/README.md): Getting Started with Basic Commands
+ - [A list of tools you should know about](tools/README.md)
 
 # Writeups
 

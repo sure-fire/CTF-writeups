@@ -10,7 +10,7 @@ cd radare2
 sys/install.sh
 ```
 
-# LEARNING RADARE
+# Learning Radare2
 
 [The "Book"](https://radare.gitbooks.io/radare2book/content/) is the authoritative and relatively complete guide to Radare2.
 
