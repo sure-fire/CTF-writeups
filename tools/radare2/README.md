@@ -1,6 +1,6 @@
 
 
-## Installing
+# Installation
 
 If you haven't already, you can install Radare2.  (Note: these commands assume you are running as root.)
 
@@ -19,8 +19,9 @@ Start radare2 by grabbing a random CTF binary and running:
 ```
 radare2 random_ctf_binary
 ```
+# Commands
 
-## The CLI: Basic Commands
+### The CLI: Basic Commands
 
  - `aaaa` - analyze all sections, autoname, and perform "additional experimental analysis".  This is the first thing you should do when opening a file.  The output is pretty meaningless, so just keep on going.
  - `afl` - analyze function list.  Shows list of functions and symbols, both those contained within the file, and those that are externally imported from libraries.  Symbols are prefaced with "sym." and imported functions are prefaced with "imp.".  
@@ -31,7 +32,7 @@ radare2 random_ctf_binary
  - `q` - quit.  exit Radare.
  - `/` - search for a string.  If your binary prints a string (like "Wrong password!") use this to locate that string and start your analysis there.
 
-## Visual mode
+### Visual mode
 
  After using `v` (or `V`) to get into Visual mode, these commands get you around:
  - `p` / 'P' - switch forward/backward through a cycle of views -- hexdump -> disassembly -> debugging (disassembly with hexdump and registers) -> hexdump (with words) -> hexdump as a C buffer -> hexdump with hideous colors -> hexdump with symbols and things? -> (back to the beginning)
@@ -45,7 +46,7 @@ radare2 random_ctf_binary
  - up/down/left/right or `kjhl` - moves the view up, down, left, or right (respectively)
  - `g` - go to.  CALL and JMP instructions will often have a hotlink to the section of code they're referencing.  For example, if you see `;[x]`, you can use use `gx` to seek there.  (Note: This changes where you've seeked to for all other commands, including the CLI.)
 
-## Debugging
+### Debugging
 
 This only works if you restart Radare2 with the `-d` flag apparently?
 
@@ -55,16 +56,16 @@ This only works if you restart Radare2 with the `-d` flag apparently?
  - `dbd` / `dbe` - disable/enable breakpoint.  Temporarily turn off a breakpoint.  You can't use `db` to enable a disabled breakpoint, you must use `dbe`.
  - `dc` - Execute the instructions in the file.  Use CTRL-C to stop.
  - `dr` - Show CPU registers, or ...
- - `dr [reg]=[value] - Set CPU register: `dr eax=0`
+ - `dr [reg]=[value]` - Set CPU register: `dr eax=0`
   
-## Weird things that are kinda handy
+### Weird things that are kinda handy
 
  - Use `?` to see all the ways to represent something.
   - Try `? 10` to see the what the decimal value of 10 appears as in: decimal, hexadecimal, octal, as a file size in bytes/kilo/mega/gigabytes, a 64-bit value, signed decimal, a string, binary, a float, a double-float (?), and something else that looks like a float(?)
   - Try `? eip` to see what the EIP register contains, and all the different formats
  - Use `s` while debugging in `VV` mode to step to the next instruction.
 
-## ~/.radare2rc
+# ~/.radare2rc
 
 You can create a `.rc` file that will be checked by radare2 on every startup.  This allows you to tweak radare2
 to be more to your liking.  I don't know what half of these things do, but here's what seems to be popular
@@ -111,3 +112,26 @@ e scr.seek   = main
 # Disable the distracting startup messages
 e cfg.fortunes = false
 ```
+
+
+# Questions and/or Answers
+
+### Questions I think I know the answer to
+
+ - Is there a difference between radare and radare2?
+   - Commands like "ag" don't seem to work the same
+ - Was Radare2 a rewrite of Radare?  An extension?  Is Radare1 dead?
+  - "r2 is a rewrite from scratch of radare..."  -- https://github.com/radare/radare2
+ - Can I have an .init file that automatically enables debugging, runs `aaaa`, runs `s main`, and runs `db sym.main`?
+  - Yes, it's `~/.radare2rc`.
+ - How the hell do you pronounce Radare2?  Do I need to say the 2?
+   - [There's no offial way](https://twitter.com/radareorg/status/676798868433018880).  I'm going to stick with "radar" (rhay-dahr).  Since Radare1 is 10 years old, I assume the "2" is unnecessary at this point.
+
+### Questions I don't yet know the answer to
+
+ - Can you eliminate the plethora of not-particularly useful visual modes?
+ - Is there a way to turn debugging without exiting and restarting Radare2?
+ - WTF is `dbg.bpinmaps` that is referenced in the error when I try to set a debugging breakpoint while not having started Radare2 with the `-d` flag?
+ - Is there a way to make it so Radare2 doesn't force me to quit out of both visual modes (BB and hexdump) to get back to a CLI?
+ - Why isn't Radare2 writing the modified binary out to disk?  See "CRACKME0 (the patching solution)".
+
