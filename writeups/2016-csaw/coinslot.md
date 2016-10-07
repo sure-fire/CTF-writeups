@@ -6,7 +6,7 @@ We don't have a binary, just a host and a port:  misc.chal.csaw.io 8000
 
 netcat gives us a nice text interface, where we're given an amount of currency, then we iterate through bills and coins ($10,000 down to $0.01):
 
-```
+```bash
 root@kali:~# nc misc.chal.csaw.io 8000
 $0.06
 $10,000 bills: 0
@@ -23,7 +23,7 @@ root@kali: #
 ```
 If you skip an input or enter a non-numeric value, the connection is immediately closed.
 
-```
+```bash
 root@kali:~# nc misc.chal.csaw.io 8000
 $0.02
 $10,000 bills: 0
@@ -51,7 +51,7 @@ If you enter the correct number of coins and bills to make the amount given, you
 
 If you screw up, you'll be told what was expected of you.
 
-```
+```bash
 root@kali:~# nc misc.chal.csaw.io 8000
 $0.02
 $10,000 bills: 0
@@ -75,7 +75,7 @@ root@kali:~#
 
 I wrote a script to extract the amount given, then iterate through the prompts and calculate the correct number of coins/bills. (edited)
 
-```
+```python
 #!/usr/bin/python
 
 import socket
@@ -107,7 +107,7 @@ while True:
 
 Runs in about a minute, depending on the network connection to the server.  Here's a sample run, and the flag:
 
-```
+```bash
 root@kali:~# time python coinslot2.py 
   TOTAL: 19144.83 (#400) 
 flag{started-from-the-bottom-now-my-whole-team-fucking-here}
