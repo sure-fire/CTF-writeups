@@ -19,6 +19,9 @@ Start radare2 by grabbing a random CTF binary and running:
 ```
 radare2 random_ctf_binary
 ```
+
+Feel free to grab the [crackme-0x00 challenge](../../writeups/crackme/0x00.md).  A good chunk of that writeup was just me learning Radare2.
+
 # Commands
 
 ### The CLI: Basic Commands
