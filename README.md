@@ -3,6 +3,7 @@ I've been (slowly) learning how to do reverse engineering of binaries.  This rep
 # CTFing for n00bs
 
  - [Setting up your Kali environment](INSTALL.md)
+ - [Tips for Reverse Engineering](TIPS.md)
 
 # Tool Basics
 
